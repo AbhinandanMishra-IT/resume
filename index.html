@@ -1,181 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Abhinandan Mishra | IT Infrastructure Professional</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IT Infrastructure & Operations Portfolio</title>
 
-    <style>
-        /* ------------------ GLOBAL ------------------ */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 40px;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #eef2f3, #f9f9f9);
-            animation: fadeInBody 1s ease-in;
-        }
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
 
-        @keyframes fadeInBody {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-        .container {
-            max-width: 900px;
-            background: #fff;
-            padding: 35px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-            animation: zoomIn 0.8s ease;
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.97);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* ------------------ HEADINGS ------------------ */
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            color: #34495e;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        h2::after {
-            content: "";
-            width: 0;
-            height: 2px;
-            background: #3498db;
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            animation: underline 1s ease forwards;
-        }
-
-        @keyframes underline {
-            to { width: 100%; }
-        }
-
-        /* ------------------ SECTIONS ------------------ */
-        .section {
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.8s ease forwards;
-        }
-
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.4s; }
-        .section:nth-child(4) { animation-delay: 0.6s; }
-        .section:nth-child(5) { animation-delay: 0.8s; }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ------------------ LIST ------------------ */
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        ul li:hover {
-            transform: translateX(8px);
-            color: #3498db;
-        }
-
-        /* ------------------ CONTACT ------------------ */
-        .contact {
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .contact a {
-            text-decoration: none;
-            color: #3498db;
-            margin-right: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .contact a:hover {
-            color: #1d6fa5;
-        }
-
-        /* ------------------ FOOTER EFFECT ------------------ */
-        .container:hover {
-            box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-            transition: box-shadow 0.4s ease;
-        }
-    </style>
+  <style>
+    .row img {
+      height: 90px;
+      max-height: 90px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
 
-    <h1>Abhinandan Mishra</h1>
-    <p><strong>Manager – IT Infrastructure, Operations & Procurement</strong></p>
+<!-- HEADER -->
+<header>
+  <div class="bx bx-menu" id="menu-icon"></div>
+  <ul class="navlist">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#portfolio">Key Initiatives</a></li>
+    <li><a href="#service">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#" class="top-btn">View Resume</a>
+</header>
 
-    <div class="contact">
-        Email: your@email.com |
-        <a href="#">LinkedIn</a> |
-        <a href="#">GitHub</a>
+<!-- HOME -->
+<section class="home" id="home">
+  <div class="home-text">
+    <h3>Hello, I'm</h3>
+    <h1>Aditya Singh</h1>
+    <h5>IT Infrastructure | Operations | Procurement</h5>
+
+    <p>
+      Manager – IT Infrastructure, Operations & Procurement with strong experience in
+      managing enterprise IT environments, cloud platforms, vendor governance, and
+      cost-optimized business operations across multi-location setups.
+    </p>
+
+    <div class="social">
+      <a href="#"><i class="bx bxl-linkedin"></i></a>
+      <a href="#"><i class="bx bxl-github"></i></a>
     </div>
 
-    <div class="section">
-        <h2>Professional Summary</h2>
-        <p>
-            IT Infrastructure professional with strong experience in cloud migration,
-            data center operations, vendor management, and enterprise cost optimization.
-        </p>
+    <a href="#contact" class="btn">Connect</a>
+  </div>
+
+  <div class="home-img">
+    <img style="border-radius: 50%" src="img/profile.png" />
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="img/infra.png" />
+  </div>
+
+  <div class="about-text">
+    <h3>IT Infrastructure & Operations Leader</h3>
+    <h2>About Me</h2>
+
+    <p>
+      I am an experienced IT Infrastructure & Operations professional with a strong focus on
+      building reliable, secure, and scalable technology environments that support business
+      growth.
+      <br><br>
+      My expertise includes IT infrastructure management, cloud & data center operations,
+      procurement, vendor governance, SLA management, and cost optimization.
+      <br><br>
+      I work closely with senior leadership and vendors to ensure operational excellence,
+      compliance, and uninterrupted service delivery across organizations.
+    </p>
+
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="heading">
+    <h3 style="font-size:48px;">Experience</h3>
+  </div>
+
+  <div style="margin-top:30px;">
+    <h1 style="text-align:center;">Manager – IT Infrastructure, Operations & Procurement</h1>
+    <h2 style="text-align:center;">Enterprise / Education Organization</h2>
+    <h2 style="text-align:center;">Present</h2>
+
+    <ul class="experienceList">
+      <li>Managed enterprise IT infrastructure including servers, networks, cloud platforms, and end-user systems.</li>
+      <li>Led procurement of IT hardware, software, AMCs, and services with vendor negotiation and SLA governance.</li>
+      <li>Implemented cost optimization strategies across cloud usage, licenses, and vendor contracts.</li>
+      <li>Ensured high availability, security compliance, and operational continuity across locations.</li>
+      <li>Acted as escalation point for critical incidents, audits, and operational risks.</li>
+      <li>Prepared management reports and updates for senior leadership.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- KEY INITIATIVES -->
+<section class="portfolio" id="portfolio">
+  <div class="heading">
+    <h3 style="font-size:48px;">Key Initiatives</h3>
+  </div>
+
+  <div class="portfolio-content">
+
+    <div class="col">
+      <h1>IT Infrastructure Modernization</h1>
+      <p>Upgraded network, server, and endpoint infrastructure to improve reliability and security.</p>
     </div>
 
-    <div class="section">
-        <h2>Core Skills</h2>
-        <ul>
-            <li>IT Infrastructure & Operations</li>
-            <li>AWS to GCP Migration</li>
-            <li>Storage Optimization (S3, Glacier, IR)</li>
-            <li>Networking – VLAN, Firewall, Switching</li>
-            <li>Vendor, Asset & Procurement Management</li>
-        </ul>
+    <div class="col">
+      <h1>Cloud Cost Optimization</h1>
+      <p>Implemented monitoring and optimization strategies to reduce infrastructure and cloud spend.</p>
     </div>
 
-    <div class="section">
-        <h2>Experience</h2>
-        <p><strong>Manager – IT Infrastructure</strong></p>
-        <p>Narayana Group | North India</p>
-        <ul>
-            <li>Led enterprise AWS → GCP migration initiative</li>
-            <li>Implemented storage lifecycle policies reducing cloud spend</li>
-            <li>Managed IT infrastructure across multiple regions</li>
-        </ul>
+    <div class="col">
+      <h1>Vendor & SLA Governance</h1>
+      <p>Established vendor performance reviews, SLA tracking, and contract renewal processes.</p>
     </div>
 
-    <div class="section">
-        <h2>Education</h2>
-        <p>Bachelor’s Degree – (Add details)</p>
-    </div>
+  </div>
+</section>
 
+<!-- SKILLS -->
+<section class="service" id="service">
+  <div class="heading">
+    <h3>S K I L L S</h3>
+    <h2>IT Infrastructure & Operations</h2>
+  </div>
+
+  <div class="service-content">
+
+    <div class="row"><h3>IT Infrastructure Management</h3></div>
+    <div class="row"><h3>Cloud & Data Center Operations</h3></div>
+    <div class="row"><h3>Network & Security Oversight</h3></div>
+    <div class="row"><h3>IT Procurement & Vendor Management</h3></div>
+    <div class="row"><h3>Cost Optimization & Budgeting</h3></div>
+    <div class="row"><h3>IT Operations & Incident Management</h3></div>
+    <div class="row"><h3>Compliance & Risk Management</h3></div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="center">
+      <h1 style="color:white;">Let's Connect</h1>
+      <p>Open to leadership discussions, infrastructure planning, and operational improvements.</p>
+
+      <h3>Email:</h3>
+      <p><a href="mailto:your@email.com">your@email.com</a></p>
+
+      <h3>Phone:</h3>
+      <p>+91 XXXXX XXXXX</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="ends">
+  <p>© 2026 | IT Infrastructure & Operations Portfolio</p>
 </div>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
