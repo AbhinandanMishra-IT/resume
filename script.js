@@ -197,3 +197,29 @@ window.addEventListener("scroll", () => {
         skill.style.opacity = Math.min(0.4, 0.1 + scrollRatio);
     });
 });
+/* ================= PDF AUTO GENERATE ================= */
+
+const pdfBtn = document.getElementById("downloadPDF");
+
+pdfBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const element = document.querySelector(".hero");
+
+    const opt = {
+        margin: 0.4,
+        filename: "Abhinandan_Mishra_Resume.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+            scale: 2,
+            backgroundColor: "#ffffff"
+        },
+        jsPDF: {
+            unit: "in",
+            format: "a4",
+            orientation: "portrait"
+        }
+    };
+
+    html2pdf().set(opt).from(element).save();
+});
