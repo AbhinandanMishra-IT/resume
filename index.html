@@ -8,7 +8,14 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
+<nav class="navbar"> <select id="languageSwitcher" class="lang-switcher">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+    <option value="mr">मराठी</option>
+    <option value="te">తెలుగు</option>
+    <option value="pa">ਪੰਜਾਬੀ</option>
+    <option value="gu">ગુજરાતી</option>
+</select>
     <div class="logo">AM · Digital Transformation</div>
     <ul>
         <li><a href="#about">About</a></li>
@@ -21,40 +28,41 @@
 <!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-left">
-        <p class="tagline">EXECUTIVE DIGITAL TRANSFORMATION</p>
+
+        <!-- TAGLINE -->
+        <p class="tagline" data-key="tagline"></p>
+
+        <!-- NAME (no translation) -->
         <h1>Abhinandan Mishra</h1>
-        <h3>
-            IT Infrastructure Leader | Cloud | Operations | Procurement
-        </h3>
 
-        <p class="summary">
-            Driving enterprise-scale IT infrastructure, cloud migration,
-            and cost-optimized operations across multi-location environments.
-        </p>
+        <!-- DESIGNATION -->
+        <h3 data-key="designation"></h3>
 
+        <!-- SUMMARY -->
+        <p class="summary" data-key="summary"></p>
+
+        <!-- BUTTONS -->
         <div class="buttons">
-            <a href="#experience" class="btn primary">View My Work</a>
-            <a href="#skills" class="btn secondary">Core Expertise & Skills</a>
-            <a href="resume.pdf" class="btn outline">Download Resume</a>
+            <a href="#experience" class="btn primary" data-key="btn_work"></a>
+            <a href="#skills" class="btn secondary" data-key="btn_skills"></a>
+            <a href="resume.pdf" class="btn outline" data-key="btn_download"></a>
         </div>
+        
     </div>
 
     <div class="hero-right">
         <div class="profile-card">
             <img src="profile.jpg" alt="Profile Photo">
 
-            <div class="experience-bar">
-                <span>Years of Experience</span>
-                <div class="bar">
-                    <div class="fill"></div>
-                </div>
-                <p>10+</p>
-            </div>
+           <div class="experience-bar">
+    <span data-key="experience"></span>
+    <div class="bar">
+        <div class="fill"></div>
+    </div>
+    <p>10+</p>
+</div>
 
-            <p class="profile-text">
-                Executive presence. Transformation at scale.<br>
-                Strategic leadership blending cloud, automation, and governance.
-            </p>
+<p class="profile-text" data-key="profile_text"></p>
         </div>
     </div>
 </section>
