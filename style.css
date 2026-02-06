@@ -457,3 +457,24 @@ body::before {
         transform: translateY(-8px);
     }
 }
+/* ================= STAR FIELD BACKGROUND ================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1px 1px at 80% 30%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.12), transparent),
+        radial-gradient(1px 1px at 70% 90%, rgba(255,255,255,0.18), transparent);
+    animation: starsMove 120s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-200px); }
+}
