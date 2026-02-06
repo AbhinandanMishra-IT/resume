@@ -326,3 +326,30 @@ body {
 .profile-card {
     background: var(--card-bg);
 }
+/* ================= MOBILE NAV ================= */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #0b1220;
+        position: absolute;
+        right: 6%;
+        top: 70px;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
