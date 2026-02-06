@@ -175,3 +175,18 @@ themeBtn.onclick = () => {
     document.body.classList.toggle("light");
     themeBtn.innerText = document.body.classList.contains("light") ? "🌞" : "🌙";
 };
+/* ================= HAMBURGER ================= */
+const burger = document.createElement("div");
+burger.className = "hamburger";
+burger.innerText = "☰";
+document.querySelector(".nav-right").prepend(burger);
+
+burger.onclick = () => {
+    document.querySelector(".nav-links").classList.toggle("show");
+};
+/* ================= AUTO LANGUAGE ================= */
+const browserLang = navigator.language.slice(0, 2);
+if (translations[browserLang]) {
+    languageSwitcher.value = browserLang;
+    updateLanguage(browserLang);
+}
