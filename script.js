@@ -209,3 +209,25 @@ if (pdfBtn) {
         }).from(element).save();
     });
 }
+/* ================= SUBTLE MOUSE PARALLAX ================= */
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    const heroLeft = document.querySelector(".hero-left");
+    const heroRight = document.querySelector(".hero-right");
+    const stars = document.querySelector(".stars");
+
+    document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 10;
+        const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+        if (heroLeft)
+            heroLeft.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
+
+        if (heroRight)
+            heroRight.style.transform = `translate(${x * -0.4}px, ${y * -0.4}px)`;
+
+        if (stars)
+            stars.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+}
