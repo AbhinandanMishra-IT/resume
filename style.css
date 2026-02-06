@@ -8,16 +8,15 @@
 
 /* ================= THEME VARIABLES ================= */
 :root {
-    --bg-main: radial-gradient(circle at top, #1b2a4e, #0b1220);
-    --text-main: #e6edf3;
-    --card-bg: rgba(15, 23, 42, 0.8);
+    --bg-main: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #020617 55%,
+        #020617 100%
+    );
+    --text-main: #e5e7eb;
+    --card-bg: rgba(2, 6, 23, 0.85);
     --accent: #22d3ee;
-}
-
-body.light {
-    --bg-main: #f4f6f8;
-    --text-main: #1e293b;
-    --card-bg: #ffffff;
 }
 
 /* ================= BODY ================= */
