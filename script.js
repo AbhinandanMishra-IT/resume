@@ -1,58 +1,103 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* ================= STICKY HEADER ================= */
+const header = document.querySelector("header");
 
-    /* EXPERIENCE BAR */
-    const fill = document.querySelector(".fill");
-    if (fill) fill.style.width = "85%";
-
-    /* TRANSLATIONS */
-    const translations = {
-        en: {
-            tagline: "EXECUTIVE DIGITAL TRANSFORMATION",
-            designation: "IT Infrastructure Leader | Cloud | Operations",
-            summary: "Driving enterprise-scale IT infrastructure and cloud transformation.",
-            btn_work: "View My Work",
-            btn_skills: "Core Expertise",
-            btn_download: "Download Resume",
-            experience: "Years of Experience",
-            profile_text: "Executive presence. Transformation at scale."
-        },
-        hi: {
-            tagline: "कार्यकारी डिजिटल परिवर्तन",
-            designation: "आईटी इंफ्रास्ट्रक्चर लीडर | क्लाउड",
-            summary: "एंटरप्राइज़ स्तर पर आईटी और क्लाउड परिवर्तन।",
-            btn_work: "मेरा काम",
-            btn_skills: "मुख्य कौशल",
-            btn_download: "रिज़्यूमे",
-            experience: "अनुभव",
-            profile_text: "रणनीतिक नेतृत्व और परिवर्तन।"
-        }
-    };
-
-    const switcher = document.getElementById("languageSwitcher");
-
-    function updateLanguage(lang) {
-        document.querySelectorAll("[data-key]").forEach(el => {
-            el.textContent = translations[lang][el.dataset.key];
-        });
-    }
-
-    switcher.value = "en";
-    updateLanguage("en");
-    switcher.addEventListener("change", () => updateLanguage(switcher.value));
-
-    /* FLOATING SKILLS */
-    const skills = ["Cloud", "AWS", "GCP", "DevOps", "Security", "Automation"];
-    const container = document.querySelector(".skills-bg");
-
-    if (container) {
-        setInterval(() => {
-            const s = document.createElement("span");
-            s.className = "skill-float";
-            s.textContent = skills[Math.floor(Math.random() * skills.length)];
-            s.style.left = Math.random() * 100 + "%";
-            s.style.animationDuration = "40s";
-            container.appendChild(s);
-            setTimeout(() => s.remove(), 60000);
-        }, 2000);
-    }
+window.addEventListener("scroll", () => {
+  header.classList.toggle("sticky", window.scrollY > 50);
 });
+
+/* ================= MOBILE MENU ================= */
+const menu = document.querySelector("#menu-icon");
+const navlist = document.querySelector(".navlist");
+
+menu.addEventListener("click", () => {
+  menu.classList.toggle("bx-x");
+  navlist.classList.toggle("active");
+});
+
+/* Close menu on scroll */
+window.addEventListener("scroll", () => {
+  menu.classList.remove("bx-x");
+  navlist.classList.remove("active");
+});
+
+/* ================= SCROLL REVEAL (SAFE INIT) ================= */
+if (typeof ScrollReveal !== "undefined") {
+  const sr = ScrollReveal({
+    distance: "50px",
+    duration: 2200,
+    easing: "cubic-bezier(.25,.8,.25,1)",
+    reset: false
+  });
+
+  sr.reveal(".home-text", {
+    delay: 300,
+    origin: "left"
+  });
+
+  sr.reveal(".home-img", {
+    delay: 300,
+    origin: "right"
+  });
+
+  sr.reveal(
+    ".sub-service, .about, .experience, .portfolio, .service, .cta, .contact",
+    {
+      delay: 200,
+      origin: "bottom",
+      interval: 120
+    }
+  );
+}
+
+/* ================= SMOOTH NAV SCROLL ================= */
+document.querySelectorAll('.navlist a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+
+    const offset = header.offsetHeight + 10;
+    const top = target.offsetTop - offset;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth"
+    });
+
+    // Close mobile menu
+    menu.classList.remove("bx-x");
+    navlist.classList.remove("active");
+  });
+});
+
+/* ================= SUBTLE MOUSE PARALLAX (DESKTOP ONLY) ================= */
+const homeImg = document.querySelector(".home-img img");
+
+if (homeImg && window.innerWidth > 1024) {
+  document.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.clientX) / 40;
+    const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+    homeImg.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+
+/* ================= FADE-IN ON LOAD ================= */
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+/* ================= PERFORMANCE: DISABLE ANIMATIONS ON LOW POWER ================= */
+if (navigator.connection && navigator.connection.saveData) {
+  document.documentElement.classList.add("reduce-motion");
+}
+
+/* ================= CONSOLE BRANDING ================= */
+console.log(
+  "%c🚀 Portfolio Loaded Successfully",
+  "color:#22d3ee;font-size:16px;font-weight:bold"
+);
+console.log(
+  "%cBuilt by Aditya Singh | Full Stack Developer",
+  "color:#9ca3af;font-size:12px"
+);
