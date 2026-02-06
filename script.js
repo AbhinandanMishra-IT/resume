@@ -165,3 +165,13 @@ if (skillsContainer) {
     setInterval(createSkill, 1800);
 }
 
+/* ================= THEME TOGGLE ================= */
+const themeBtn = document.createElement("button");
+themeBtn.innerText = "🌙";
+themeBtn.className = "theme-toggle";
+document.querySelector(".navbar").appendChild(themeBtn);
+
+themeBtn.onclick = () => {
+    document.body.classList.toggle("light");
+    themeBtn.innerText = document.body.classList.contains("light") ? "🌞" : "🌙";
+};
