@@ -1,3 +1,4 @@
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +6,35 @@
     font-family: "Segoe UI", sans-serif;
 }
 
-/* BACKGROUND */
-body {
-    background: radial-gradient(circle at top, #1b2a4e, #0b1220);
-    color: #e6edf3;
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg-main: radial-gradient(circle at top, #1b2a4e, #0b1220);
+    --text-main: #e6edf3;
+    --card-bg: rgba(15, 23, 42, 0.8);
+    --accent: #22d3ee;
 }
 
-/* NAVBAR */
+body.light {
+    --bg-main: #f4f6f8;
+    --text-main: #1e293b;
+    --card-bg: #ffffff;
+}
+
+/* ================= BODY ================= */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px 8%;
     align-items: center;
+    padding: 20px 8%;
+    position: relative;
+    z-index: 3;
 }
 
 .logo {
@@ -24,24 +42,47 @@ body {
     letter-spacing: 1px;
 }
 
-.navbar ul {
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-.navbar a {
+.nav-links a {
     text-decoration: none;
     color: #cdd9e5;
     font-size: 14px;
 }
 
-/* HERO */
+/* ================= LANGUAGE SWITCH ================= */
+.lang-switcher {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-main);
+    padding: 6px 10px;
+    border-radius: 6px;
+    outline: none;
+}
+
+.lang-switcher option {
+    color: #000;
+}
+
+/* ================= HERO ================= */
 .hero {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 80px 8%;
-    min-height: 90vh;
+    min-height: calc(100vh - 80px);
+    overflow: hidden;
 }
 
 .hero-left {
@@ -73,7 +114,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
 .buttons {
     display: flex;
     gap: 15px;
@@ -85,7 +126,7 @@ body {
     border-radius: 30px;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .primary {
@@ -99,18 +140,32 @@ body {
 }
 
 .outline {
-    border: 1px solid #22d3ee;
-    color: #22d3ee;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    position: relative;
 }
 
-/* RIGHT CARD */
+/* Download bounce */
+.outline::after {
+    content: "⬇";
+    margin-left: 8px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
+/* ================= HERO RIGHT CARD ================= */
 .hero-right {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .profile-card {
-    background: rgba(15, 23, 42, 0.8);
+    background: var(--card-bg);
     border-radius: 20px;
     padding: 25px;
     width: 300px;
@@ -123,7 +178,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* EXPERIENCE BAR */
+/* ================= EXPERIENCE BAR ================= */
 .experience-bar span {
     font-size: 13px;
     color: #94a3b8;
@@ -150,118 +205,7 @@ body {
     line-height: 1.5;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .hero-left {
-        max-width: 100%;
-    }
-
-    .hero-right {
-        margin-top: 40px;
-        justify-content: center;
-    }
-}
-.lang-switcher {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #e6edf3;
-    padding: 6px 10px;
-    border-radius: 6px;
-    outline: none;
-}
-
-.lang-switcher option {
-    color: #000;
-}
 /* ================= SKILLS BACKGROUND ================= */
-
-.skills-bg {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.skill-float {
-    position: absolute;
-    font-size: 14px;
-    color: rgba(94, 234, 212, 0.15);
-    letter-spacing: 1px;
-    animation: floatSkill linear infinite;
-    white-space: nowrap;
-    filter: blur(0.3px);
-}
-
-@keyframes floatSkill {
-    from {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.4;
-    }
-    90% {
-        opacity: 0.4;
-    }
-    to {
-        transform: translateY(-20vh);
-        opacity: 0;
-    }
-}
-
-/* Ensure hero content stays above */
-.hero-left,
-.hero-right,
-.navbar {
-    position: relative;
-    z-index: 2;
-}
-/* ================= PROFESSIONAL ANIMATIONS ================= */
-
-/* Smooth text transition (language switch) */
-[data-key] {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.text-fade-out {
-    opacity: 0;
-    transform: translateY(4px);
-}
-
-.text-fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Hero entrance animation */
-.hero-left > * {
-    animation: heroFadeUp 0.8s ease both;
-}
-
-.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-.hero-left > *:nth-child(2) { animation-delay: 0.2s; }
-.hero-left > *:nth-child(3) { animation-delay: 0.3s; }
-.hero-left > *:nth-child(4) { animation-delay: 0.4s; }
-.hero-left > *:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes heroFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(14px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ================= BACKGROUND SKILLS (REFINED) ================= */
-
 .skills-bg {
     position: absolute;
     inset: 0;
@@ -285,10 +229,7 @@ body {
         transform: translateY(120vh);
         opacity: 0;
     }
-    15% {
-        opacity: 0.35;
-    }
-    85% {
+    15%, 85% {
         opacity: 0.35;
     }
     to {
@@ -297,35 +238,51 @@ body {
     }
 }
 
-/* Keep main content above background */
+/* Keep content above background */
 .hero-left,
 .hero-right,
 .navbar {
     position: relative;
     z-index: 2;
 }
-/* ================= THEME TOGGLE ================= */
-:root {
-    --bg-main: radial-gradient(circle at top, #1b2a4e, #0b1220);
-    --text-main: #e6edf3;
-    --card-bg: rgba(15, 23, 42, 0.8);
+
+/* ================= TEXT FADE (LANG SWITCH) ================= */
+[data-key] {
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-body.light {
-    --bg-main: #f4f6f8;
-    --text-main: #1e293b;
-    --card-bg: #ffffff;
+.text-fade-out {
+    opacity: 0;
+    transform: translateY(4px);
 }
 
-body {
-    background: var(--bg-main);
-    color: var(--text-main);
-    transition: background 0.4s ease, color 0.4s ease;
+.text-fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.profile-card {
-    background: var(--card-bg);
+/* ================= HERO ENTRANCE ================= */
+.hero-left > * {
+    animation: heroFadeUp 0.8s ease both;
 }
+
+.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ================= MOBILE NAV ================= */
 .hamburger {
     display: none;
@@ -334,12 +291,25 @@ body {
 }
 
 @media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-right {
+        margin-top: 40px;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         background: #0b1220;
         position: absolute;
-        right: 6%;
+        right: 8%;
         top: 70px;
         padding: 20px;
         border-radius: 12px;
@@ -352,19 +322,4 @@ body {
     .hamburger {
         display: block;
     }
-}
-/* ================= DOWNLOAD ANIMATION ================= */
-.btn.outline {
-    position: relative;
-}
-
-.btn.outline::after {
-    content: "⬇";
-    margin-left: 8px;
-    animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(4px); }
 }
