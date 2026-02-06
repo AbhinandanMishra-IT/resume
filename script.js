@@ -1,7 +1,10 @@
+/* ================= ON LOAD ================= */
 window.addEventListener("load", () => {
     const fill = document.querySelector(".fill");
-    fill.style.width = "85%"; // change based on experience
+    if (fill) fill.style.width = "85%"; // adjust as needed
 });
+
+/* ================= TRANSLATIONS ================= */
 const translations = {
     en: {
         tagline: "EXECUTIVE DIGITAL TRANSFORMATION",
@@ -15,7 +18,6 @@ const translations = {
         profile_text:
             "Executive presence. Transformation at scale. Strategic leadership blending cloud, automation, and governance."
     },
-
     hi: {
         tagline: "कार्यकारी डिजिटल परिवर्तन",
         designation: "आईटी इंफ्रास्ट्रक्चर लीडर | क्लाउड | ऑपरेशंस | प्रोक्योरमेंट",
@@ -28,7 +30,6 @@ const translations = {
         profile_text:
             "कार्यकारी उपस्थिति। बड़े स्तर पर परिवर्तन। रणनीतिक नेतृत्व।"
     },
-
     mr: {
         tagline: "कार्यकारी डिजिटल परिवर्तन",
         designation: "आयटी पायाभूत सुविधा लीडर | क्लाउड | ऑपरेशन्स | खरेदी",
@@ -41,7 +42,6 @@ const translations = {
         profile_text:
             "कार्यकारी उपस्थिती. मोठ्या प्रमाणावर परिवर्तन."
     },
-
     te: {
         tagline: "ఎగ్జిక్యూటివ్ డిజిటల్ ట్రాన్స్‌ఫార్మేషన్",
         designation: "ఐటీ ఇన్ఫ్రాస్ట్రక్చర్ లీడర్ | క్లౌడ్ | ఆపరేషన్స్",
@@ -54,7 +54,6 @@ const translations = {
         profile_text:
             "నాయకత్వ స్థాయి మార్పు. వ్యూహాత్మక డిజిటల్ నాయకత్వం."
     },
-
     pa: {
         tagline: "ਐਗਜ਼ਿਕਿਊਟਿਵ ਡਿਜ਼ੀਟਲ ਟ੍ਰਾਂਸਫ਼ਾਰਮੇਸ਼ਨ",
         designation: "ਆਈਟੀ ਢਾਂਚਾ ਲੀਡਰ | ਕਲਾਊਡ | ਓਪਰੇਸ਼ਨ",
@@ -67,7 +66,6 @@ const translations = {
         profile_text:
             "ਕਾਰਜਕਾਰੀ ਮੌਜੂਦਗੀ। ਵੱਡੇ ਪੱਧਰ 'ਤੇ ਤਬਦੀਲੀ।"
     },
-
     gu: {
         tagline: "એક્ઝિક્યુટિવ ડિજિટલ ટ્રાન્સફોર્મેશન",
         designation: "આઈટી ઇન્ફ્રાસ્ટ્રક્ચર લીડર | ક્લાઉડ | ઓપરેશન્સ",
@@ -82,27 +80,13 @@ const translations = {
     }
 };
 
-/* LANGUAGE SWITCH */
-const switcher = document.getElementById("languageSwitcher");
-
-switcher.addEventListener("change", () => {
-    const lang = switcher.value;
-    document.querySelectorAll("[data-key]").forEach(el => {
-        const key = el.getAttribute("data-key");
-        el.textContent = translations[lang][key];
-    });
-});
-
-/* DEFAULT LANGUAGE */
-switcher.value = "en";
-switcher.dispatchEvent(new Event("change"));
 /* ================= LANGUAGE SWITCH WITH FADE ================= */
-
 const switcher = document.getElementById("languageSwitcher");
 
 function updateLanguage(lang) {
     document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
+        if (!translations[lang][key]) return;
 
         el.classList.add("text-fade-out");
 
@@ -118,16 +102,22 @@ function updateLanguage(lang) {
     });
 }
 
-switcher.addEventListener("change", () => {
-    updateLanguage(switcher.value);
-});
+if (switcher) {
+    switcher.addEventListener("change", () => {
+        updateLanguage(switcher.value);
+    });
+}
 
-/* Default language */
-updateLanguage("en");
+/* ================= AUTO LANGUAGE (BROWSER) ================= */
+const browserLang = navigator.language.slice(0, 2);
+const defaultLang = translations[browserLang] ? browserLang : "en";
 
+if (switcher) {
+    switcher.value = defaultLang;
+}
+updateLanguage(defaultLang);
 
 /* ================= BACKGROUND SKILLS ANIMATION ================= */
-
 const skills = [
     "Cloud Infrastructure",
     "AWS",
@@ -146,8 +136,8 @@ const skills = [
 ];
 
 const skillsContainer = document.querySelector(".skills-bg");
-if (skillsContainer) {
 
+if (skillsContainer) {
     function createSkill() {
         const skill = document.createElement("span");
         skill.className = "skill-float";
@@ -158,68 +148,64 @@ if (skillsContainer) {
         skill.style.animationDuration = Math.random() * 20 + 30 + "s";
 
         skillsContainer.appendChild(skill);
-
         setTimeout(() => skill.remove(), 60000);
     }
 
     setInterval(createSkill, 1800);
 }
 
+/* ================= SCROLL AWARE SKILLS ================= */
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".skill-float").forEach(skill => {
+        const scrollRatio = window.scrollY / window.innerHeight;
+        skill.style.opacity = Math.min(0.4, 0.1 + scrollRatio);
+    });
+});
+
 /* ================= THEME TOGGLE ================= */
 const themeBtn = document.createElement("button");
-themeBtn.innerText = "🌙";
 themeBtn.className = "theme-toggle";
-document.querySelector(".navbar").appendChild(themeBtn);
+themeBtn.innerText = "🌙";
+
+const navbar = document.querySelector(".navbar");
+if (navbar) navbar.appendChild(themeBtn);
 
 themeBtn.onclick = () => {
     document.body.classList.toggle("light");
     themeBtn.innerText = document.body.classList.contains("light") ? "🌞" : "🌙";
 };
-/* ================= HAMBURGER ================= */
-const burger = document.createElement("div");
-burger.className = "hamburger";
-burger.innerText = "☰";
-document.querySelector(".nav-right").prepend(burger);
 
-burger.onclick = () => {
-    document.querySelector(".nav-links").classList.toggle("show");
-};
-/* ================= AUTO LANGUAGE ================= */
-const browserLang = navigator.language.slice(0, 2);
-if (translations[browserLang]) {
-    languageSwitcher.value = browserLang;
-    updateLanguage(browserLang);
+/* ================= MOBILE HAMBURGER ================= */
+const navRight = document.querySelector(".nav-right");
+const navLinks = document.querySelector(".nav-links");
+
+if (navRight && navLinks) {
+    const burger = document.createElement("div");
+    burger.className = "hamburger";
+    burger.innerText = "☰";
+    navRight.prepend(burger);
+
+    burger.onclick = () => {
+        navLinks.classList.toggle("show");
+    };
 }
-/* ================= SCROLL AWARE SKILLS ================= */
-window.addEventListener("scroll", () => {
-    const scrollRatio = window.scrollY / window.innerHeight;
-    document.querySelectorAll(".skill-float").forEach(skill => {
-        skill.style.opacity = Math.min(0.4, 0.1 + scrollRatio);
-    });
-});
-/* ================= PDF AUTO GENERATE ================= */
 
+/* ================= PDF AUTO GENERATE ================= */
 const pdfBtn = document.getElementById("downloadPDF");
 
-pdfBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+if (pdfBtn) {
+    pdfBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    const element = document.querySelector(".hero");
+        const element = document.querySelector(".hero");
+        if (!element) return;
 
-    const opt = {
-        margin: 0.4,
-        filename: "Abhinandan_Mishra_Resume.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: {
-            scale: 2,
-            backgroundColor: "#ffffff"
-        },
-        jsPDF: {
-            unit: "in",
-            format: "a4",
-            orientation: "portrait"
-        }
-    };
-
-    html2pdf().set(opt).from(element).save();
-});
+        html2pdf().set({
+            margin: 0.4,
+            filename: "Abhinandan_Mishra_Resume.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2, backgroundColor: "#ffffff" },
+            jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+        }).from(element).save();
+    });
+}
