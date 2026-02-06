@@ -1,7 +1,9 @@
-/* ================= ON LOAD ================= */
+/* ================= EXPERIENCE BAR ================= */
 window.addEventListener("load", () => {
     const fill = document.querySelector(".fill");
-    if (fill) fill.style.width = "85%"; // adjust as needed
+    if (fill) {
+        fill.style.width = "85%"; // change based on experience
+    }
 });
 
 /* ================= TRANSLATIONS ================= */
@@ -9,74 +11,62 @@ const translations = {
     en: {
         tagline: "EXECUTIVE DIGITAL TRANSFORMATION",
         designation: "IT Infrastructure Leader | Cloud | Operations | Procurement",
-        summary:
-            "Driving enterprise-scale IT infrastructure, cloud migration, and cost-optimized operations across multi-location environments.",
+        summary: "Driving enterprise-scale IT infrastructure, cloud migration, and cost-optimized operations across multi-location environments.",
         btn_work: "View My Work",
         btn_skills: "Core Expertise & Skills",
         btn_download: "Download Resume",
         experience: "Years of Experience",
-        profile_text:
-            "Executive presence. Transformation at scale. Strategic leadership blending cloud, automation, and governance."
+        profile_text: "Executive presence. Transformation at scale. Strategic leadership blending cloud, automation, and governance."
     },
     hi: {
         tagline: "कार्यकारी डिजिटल परिवर्तन",
         designation: "आईटी इंफ्रास्ट्रक्चर लीडर | क्लाउड | ऑपरेशंस | प्रोक्योरमेंट",
-        summary:
-            "एंटरप्राइज़ स्तर पर आईटी इंफ्रास्ट्रक्चर, क्लाउड माइग्रेशन और लागत-अनुकूल संचालन का नेतृत्व।",
+        summary: "एंटरप्राइज़ स्तर पर आईटी इंफ्रास्ट्रक्चर, क्लाउड माइग्रेशन और लागत-अनुकूल संचालन का नेतृत्व।",
         btn_work: "मेरा कार्य देखें",
         btn_skills: "मुख्य विशेषज्ञता और कौशल",
         btn_download: "रिज़्यूमे डाउनलोड करें",
         experience: "अनुभव के वर्ष",
-        profile_text:
-            "कार्यकारी उपस्थिति। बड़े स्तर पर परिवर्तन। रणनीतिक नेतृत्व।"
+        profile_text: "कार्यकारी उपस्थिति। बड़े स्तर पर परिवर्तन। रणनीतिक नेतृत्व।"
     },
     mr: {
         tagline: "कार्यकारी डिजिटल परिवर्तन",
         designation: "आयटी पायाभूत सुविधा लीडर | क्लाउड | ऑपरेशन्स | खरेदी",
-        summary:
-            "एंटरप्राइझ स्तरावरील आयटी पायाभूत सुविधा आणि क्लाउड परिवर्तनाचे नेतृत्व.",
+        summary: "एंटरप्राइझ स्तरावरील आयटी पायाभूत सुविधा आणि क्लाउड परिवर्तनाचे नेतृत्व.",
         btn_work: "माझे काम पहा",
         btn_skills: "मुख्य कौशल्ये",
         btn_download: "रिझ्युमे डाउनलोड करा",
         experience: "अनुभवाची वर्षे",
-        profile_text:
-            "कार्यकारी उपस्थिती. मोठ्या प्रमाणावर परिवर्तन."
+        profile_text: "कार्यकारी उपस्थिती. मोठ्या प्रमाणावर परिवर्तन."
     },
     te: {
         tagline: "ఎగ్జిక్యూటివ్ డిజిటల్ ట్రాన్స్‌ఫార్మేషన్",
         designation: "ఐటీ ఇన్ఫ్రాస్ట్రక్చర్ లీడర్ | క్లౌడ్ | ఆపరేషన్స్",
-        summary:
-            "ఎంటర్‌ప్రైజ్ స్థాయిలో ఐటీ మౌలిక సదుపాయాలు మరియు క్లౌడ్ మార్పును నడిపించడం.",
+        summary: "ఎంటర్‌ప్రైజ్ స్థాయిలో ఐటీ మౌలిక సదుపాయాలు మరియు క్లౌడ్ మార్పును నడిపించడం.",
         btn_work: "నా పని చూడండి",
         btn_skills: "ప్రధాన నైపుణ్యాలు",
         btn_download: "రెజ్యూమ్ డౌన్‌లోడ్",
         experience: "అనుభవ సంవత్సరాలు",
-        profile_text:
-            "నాయకత్వ స్థాయి మార్పు. వ్యూహాత్మక డిజిటల్ నాయకత్వం."
+        profile_text: "నాయకత్వ స్థాయి మార్పు. వ్యూహాత్మక డిజిటల్ నాయకత్వం."
     },
     pa: {
         tagline: "ਐਗਜ਼ਿਕਿਊਟਿਵ ਡਿਜ਼ੀਟਲ ਟ੍ਰਾਂਸਫ਼ਾਰਮੇਸ਼ਨ",
         designation: "ਆਈਟੀ ਢਾਂਚਾ ਲੀਡਰ | ਕਲਾਊਡ | ਓਪਰੇਸ਼ਨ",
-        summary:
-            "ਐਂਟਰਪ੍ਰਾਈਜ਼ ਪੱਧਰ 'ਤੇ ਆਈਟੀ ਅਤੇ ਕਲਾਊਡ ਤਬਦੀਲੀ ਦਾ ਨੇਤ੍ਰਿਤਵ।",
+        summary: "ਐਂਟਰਪ੍ਰਾਈਜ਼ ਪੱਧਰ 'ਤੇ ਆਈਟੀ ਅਤੇ ਕਲਾਊਡ ਤਬਦੀਲੀ ਦਾ ਨੇਤ੍ਰਿਤਵ।",
         btn_work: "ਮੇਰਾ ਕੰਮ ਵੇਖੋ",
         btn_skills: "ਮੁੱਖ ਹੁਨਰ",
         btn_download: "ਰਿਜ਼ਿਊਮੇ ਡਾਊਨਲੋਡ",
         experience: "ਅਨੁਭਵ ਦੇ ਸਾਲ",
-        profile_text:
-            "ਕਾਰਜਕਾਰੀ ਮੌਜੂਦਗੀ। ਵੱਡੇ ਪੱਧਰ 'ਤੇ ਤਬਦੀਲੀ।"
+        profile_text: "ਕਾਰਜਕਾਰੀ ਮੌਜੂਦਗੀ। ਵੱਡੇ ਪੱਧਰ 'ਤੇ ਤਬਦੀਲੀ।"
     },
     gu: {
         tagline: "એક્ઝિક્યુટિવ ડિજિટલ ટ્રાન્સફોર્મેશન",
         designation: "આઈટી ઇન્ફ્રાસ્ટ્રક્ચર લીડર | ક્લાઉડ | ઓપરેશન્સ",
-        summary:
-            "એન્ટરપ્રાઇઝ સ્તરે આઈટી માળખું અને ક્લાઉડ પરિવર્તનનું નેતૃત્વ.",
+        summary: "એન્ટરપ્રાઇઝ સ્તરે આઈટી માળખું અને ક્લાઉડ પરિવર્તનનું નેતૃત્વ.",
         btn_work: "મારું કામ જુઓ",
         btn_skills: "મુખ્ય કુશળતાઓ",
         btn_download: "રિઝ્યૂમે ડાઉનલોડ",
         experience: "અનુભવના વર્ષો",
-        profile_text:
-            "એક્ઝિક્યુટિવ હાજરી. મોટા સ્તરે પરિવર્તન."
+        profile_text: "એક્ઝિક્યુટિવ હાજરી. મોટા સ્તરે પરિવર્તન."
     }
 };
 
@@ -86,16 +76,15 @@ const switcher = document.getElementById("languageSwitcher");
 function updateLanguage(lang) {
     document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.getAttribute("data-key");
-        if (!translations[lang][key]) return;
-
+        
         el.classList.add("text-fade-out");
-
+        
         setTimeout(() => {
             el.textContent = translations[lang][key];
             el.classList.remove("text-fade-out");
             el.classList.add("text-fade-in");
         }, 200);
-
+        
         setTimeout(() => {
             el.classList.remove("text-fade-in");
         }, 500);
@@ -106,16 +95,17 @@ if (switcher) {
     switcher.addEventListener("change", () => {
         updateLanguage(switcher.value);
     });
+    
+    /* Auto-detect browser language */
+    const browserLang = navigator.language.slice(0, 2);
+    if (translations[browserLang]) {
+        switcher.value = browserLang;
+        updateLanguage(browserLang);
+    } else {
+        /* Default to English */
+        updateLanguage("en");
+    }
 }
-
-/* ================= AUTO LANGUAGE (BROWSER) ================= */
-const browserLang = navigator.language.slice(0, 2);
-const defaultLang = translations[browserLang] ? browserLang : "en";
-
-if (switcher) {
-    switcher.value = defaultLang;
-}
-updateLanguage(defaultLang);
 
 /* ================= BACKGROUND SKILLS ANIMATION ================= */
 const skills = [
@@ -136,55 +126,57 @@ const skills = [
 ];
 
 const skillsContainer = document.querySelector(".skills-bg");
-
 if (skillsContainer) {
     function createSkill() {
         const skill = document.createElement("span");
         skill.className = "skill-float";
         skill.innerText = skills[Math.floor(Math.random() * skills.length)];
-
+        
         skill.style.left = Math.random() * 100 + "%";
         skill.style.fontSize = Math.random() * 6 + 12 + "px";
         skill.style.animationDuration = Math.random() * 20 + 30 + "s";
-
+        
         skillsContainer.appendChild(skill);
+        
         setTimeout(() => skill.remove(), 60000);
     }
-
+    
     setInterval(createSkill, 1800);
 }
 
 /* ================= SCROLL AWARE SKILLS ================= */
 window.addEventListener("scroll", () => {
+    const scrollRatio = window.scrollY / window.innerHeight;
     document.querySelectorAll(".skill-float").forEach(skill => {
-        const scrollRatio = window.scrollY / window.innerHeight;
         skill.style.opacity = Math.min(0.4, 0.1 + scrollRatio);
     });
 });
 
 /* ================= THEME TOGGLE ================= */
-const themeBtn = document.createElement("button");
-themeBtn.className = "theme-toggle";
-themeBtn.innerText = "🌙";
-
 const navbar = document.querySelector(".navbar");
-if (navbar) navbar.appendChild(themeBtn);
+if (navbar) {
+    const themeBtn = document.createElement("button");
+    themeBtn.innerText = "🌙";
+    themeBtn.className = "theme-toggle";
+    navbar.appendChild(themeBtn);
+    
+    themeBtn.onclick = () => {
+        document.body.classList.toggle("light");
+        themeBtn.innerText = document.body.classList.contains("light") ? "🌞" : "🌙";
+    };
+}
 
-themeBtn.onclick = () => {
-    document.body.classList.toggle("light");
-    themeBtn.innerText = document.body.classList.contains("light") ? "🌞" : "🌙";
-};
-
-/* ================= MOBILE HAMBURGER ================= */
-const navRight = document.querySelector(".nav-right");
+/* ================= HAMBURGER MENU ================= */
 const navLinks = document.querySelector(".nav-links");
-
-if (navRight && navLinks) {
+if (navLinks) {
     const burger = document.createElement("div");
     burger.className = "hamburger";
     burger.innerText = "☰";
-    navRight.prepend(burger);
-
+    
+    /* Insert before nav-links or in navbar */
+    const navParent = navLinks.parentElement;
+    navParent.insertBefore(burger, navLinks);
+    
     burger.onclick = () => {
         navLinks.classList.toggle("show");
     };
@@ -196,38 +188,29 @@ const pdfBtn = document.getElementById("downloadPDF");
 if (pdfBtn) {
     pdfBtn.addEventListener("click", (e) => {
         e.preventDefault();
-
+        
         const element = document.querySelector(".hero");
-        if (!element) return;
-
-        html2pdf().set({
+        
+        if (!element) {
+            console.error("Hero section not found");
+            return;
+        }
+        
+        const opt = {
             margin: 0.4,
             filename: "Abhinandan_Mishra_Resume.pdf",
             image: { type: "jpeg", quality: 0.98 },
-            html2canvas: { scale: 2, backgroundColor: "#ffffff" },
-            jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
-        }).from(element).save();
-    });
-}
-/* ================= SUBTLE MOUSE PARALLAX ================= */
-
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-
-    const heroLeft = document.querySelector(".hero-left");
-    const heroRight = document.querySelector(".hero-right");
-    const stars = document.querySelector(".stars");
-
-    document.addEventListener("mousemove", (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 10;
-        const y = (e.clientY / window.innerHeight - 0.5) * 10;
-
-        if (heroLeft)
-            heroLeft.style.transform = `translate(${x * 0.6}px, ${y * 0.6}px)`;
-
-        if (heroRight)
-            heroRight.style.transform = `translate(${x * -0.4}px, ${y * -0.4}px)`;
-
-        if (stars)
-            stars.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            html2canvas: {
+                scale: 2,
+                backgroundColor: "#ffffff"
+            },
+            jsPDF: {
+                unit: "in",
+                format: "a4",
+                orientation: "portrait"
+            }
+        };
+        
+        html2pdf().set(opt).from(element).save();
     });
 }
