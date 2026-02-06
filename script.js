@@ -190,3 +190,10 @@ if (translations[browserLang]) {
     languageSwitcher.value = browserLang;
     updateLanguage(browserLang);
 }
+/* ================= SCROLL AWARE SKILLS ================= */
+window.addEventListener("scroll", () => {
+    const scrollRatio = window.scrollY / window.innerHeight;
+    document.querySelectorAll(".skill-float").forEach(skill => {
+        skill.style.opacity = Math.min(0.4, 0.1 + scrollRatio);
+    });
+});
