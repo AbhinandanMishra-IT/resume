@@ -177,3 +177,47 @@ body {
 .lang-switcher option {
     color: #000;
 }
+/* ================= SKILLS BACKGROUND ================= */
+
+.skills-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.skill-float {
+    position: absolute;
+    font-size: 14px;
+    color: rgba(94, 234, 212, 0.15);
+    letter-spacing: 1px;
+    animation: floatSkill linear infinite;
+    white-space: nowrap;
+    filter: blur(0.3px);
+}
+
+@keyframes floatSkill {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    to {
+        transform: translateY(-20vh);
+        opacity: 0;
+    }
+}
+
+/* Ensure hero content stays above */
+.hero-left,
+.hero-right,
+.navbar {
+    position: relative;
+    z-index: 2;
+}
