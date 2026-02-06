@@ -1,162 +1,288 @@
+/* ================= RESET ================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: 'Jost', sans-serif;
 }
 
+/* ================= THEME VARIABLES ================= */
 :root {
-    --primary: #6366f1;
-    --secondary: #8b5cf6;
-    --bg-dark: #020617;
-    --bg-card: #0f172a;
-    --text-light: #f1f5f9;
-    --text-gray: #94a3b8;
-    --border: #1e293b;
+  --bg-color: #0f172a;
+  --bg-soft: #111827;
+  --card-bg: #1e293b;
+
+  --text-color: #e5e7eb;
+  --muted-text: #9ca3af;
+
+  --main-color: #6366f1;
+  --accent: #22d3ee;
+
+  --big-font: 4.2rem;
+  --h2-font: 2.6rem;
+  --p-font: 1.05rem;
 }
 
+/* ================= BODY ================= */
 body {
-    font-family: system-ui, sans-serif;
-    background: radial-gradient(circle at top, #020617, #000);
-    color: var(--text-light);
-    overflow-x: hidden;
+  background: radial-gradient(circle at top, #111827, #020617);
+  color: var(--text-color);
+  overflow-x: hidden;
 }
 
-/* STAR BACKGROUND */
+/* ================= STAR BACKGROUND ================= */
 .stars {
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.12), transparent),
-        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.08), transparent),
-        radial-gradient(1px 1px at 50% 75%, rgba(255,255,255,0.1), transparent);
-    opacity: 0.35;
-    animation: starsDrift 200s linear infinite;
-    z-index: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.15), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,.12), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,.1), transparent);
+  animation: starsMove 180s linear infinite;
+  opacity: 0.4;
 }
 
-@keyframes starsDrift {
-    to { transform: translateY(-120px); }
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
 }
 
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1.2rem 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(2,6,23,0.85);
-    backdrop-filter: blur(12px);
-    z-index: 10;
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: 0.3s;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+header.sticky {
+  padding: 14px 12%;
+  background: rgba(15, 23, 42, 0.95);
 }
 
-.nav-links a {
-    color: var(--text-gray);
-    text-decoration: none;
+.navlist {
+  display: flex;
 }
 
-.lang-switcher {
-    background: var(--bg-card);
-    color: var(--text-light);
-    border: 1px solid var(--border);
+.navlist a {
+  color: var(--text-color);
+  font-size: var(--p-font);
+  padding: 10px 22px;
+  position: relative;
 }
 
-/* HERO */
-.hero {
-    min-height: 100vh;
-    padding: 9rem 6% 4rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 4rem;
-    position: relative;
-    z-index: 1;
+.navlist a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.3s;
 }
 
-.skills-bg {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+.navlist a:hover::after {
+  width: 100%;
 }
 
-.skill-float {
-    position: absolute;
-    font-size: 13px;
-    color: rgba(148,163,184,0.08);
-    animation: floatSkill linear infinite;
+.top-btn {
+  border: 1px solid var(--accent);
+  padding: 8px 22px;
+  border-radius: 999px;
+  color: var(--accent);
+  transition: 0.3s;
 }
 
-@keyframes floatSkill {
-    from { transform: translateY(120vh); }
-    to { transform: translateY(-20vh); }
+.top-btn:hover {
+  background: var(--accent);
+  color: #020617;
 }
 
-/* LEFT */
-.hero-left h1 {
-    font-size: 3.5rem;
+/* ================= SECTIONS ================= */
+section {
+  padding: 110px 12%;
+  position: relative;
+  z-index: 1;
 }
 
-.summary {
-    max-width: 520px;
-    margin: 1.5rem 0;
+/* ================= HOME ================= */
+.home {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 4rem;
 }
 
-/* BUTTONS */
-.buttons {
-    display: flex;
-    gap: 1rem;
+.home-text h3 {
+  color: var(--accent);
+  letter-spacing: 2px;
+}
+
+.home-text h1 {
+  font-size: var(--big-font);
+  margin: 12px 0;
+  background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-text h5 {
+  color: var(--muted-text);
+  font-weight: 500;
+}
+
+.home-text p {
+  color: var(--muted-text);
+  line-height: 1.7;
+  margin: 20px 0;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  color: var(--text-color);
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.social a:hover {
+  background: var(--accent);
+  color: #020617;
+  transform: translateY(-3px);
 }
 
 .btn {
-    padding: 0.7rem 1.6rem;
-    border-radius: 0.4rem;
-    text-decoration: none;
+  display: inline-block;
+  padding: 10px 34px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--main-color), var(--accent));
+  color: #020617;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
+.btn:hover {
+  transform: translateY(-3px);
 }
 
-.secondary {
-    border: 1px solid var(--border);
-    color: var(--text-light);
+/* ================= ABOUT ================= */
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
 }
 
-.outline {
-    border: 1px solid var(--primary);
-    color: var(--primary);
+.about-text h2 {
+  font-size: var(--h2-font);
 }
 
-/* RIGHT */
-.profile-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 1.6rem;
-    width: 360px;
+.about-text p {
+  color: var(--muted-text);
+  line-height: 1.7;
 }
 
-.bar {
-    background: #020617;
-    height: 8px;
-    border-radius: 4px;
-    overflow: hidden;
+/* ================= EXPERIENCE / PORTFOLIO ================= */
+.heading {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.fill {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+.heading h2 {
+  font-size: var(--h2-font);
 }
 
+.portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.col {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.col:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.projectDescription {
+  color: var(--muted-text);
+}
+
+/* ================= SKILLS ================= */
+.service-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.row {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.row:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= CONTACT ================= */
+.contact {
+  background: linear-gradient(135deg, #020617, #111827);
+  border-radius: 20px;
+  padding: 80px;
+  text-align: center;
+}
+
+.center p {
+  color: var(--muted-text);
+}
+
+/* ================= FOOTER ================= */
+.ends {
+  padding: 30px;
+  text-align: center;
+  color: var(--muted-text);
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
-    .hero { flex-direction: column; text-align: center; }
+  .home,
+  .about {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  header {
+    padding: 16px 6%;
+  }
+
+  section {
+    padding: 90px 6%;
+  }
 }
