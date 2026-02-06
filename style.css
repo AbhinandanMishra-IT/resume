@@ -304,3 +304,25 @@ body {
     position: relative;
     z-index: 2;
 }
+/* ================= THEME TOGGLE ================= */
+:root {
+    --bg-main: radial-gradient(circle at top, #1b2a4e, #0b1220);
+    --text-main: #e6edf3;
+    --card-bg: rgba(15, 23, 42, 0.8);
+}
+
+body.light {
+    --bg-main: #f4f6f8;
+    --text-main: #1e293b;
+    --card-bg: #ffffff;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.profile-card {
+    background: var(--card-bg);
+}
