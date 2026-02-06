@@ -96,3 +96,72 @@ switcher.addEventListener("change", () => {
 /* DEFAULT LANGUAGE */
 switcher.value = "en";
 switcher.dispatchEvent(new Event("change"));
+/* ================= LANGUAGE SWITCH WITH FADE ================= */
+
+const switcher = document.getElementById("languageSwitcher");
+
+function updateLanguage(lang) {
+    document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.getAttribute("data-key");
+
+        el.classList.add("text-fade-out");
+
+        setTimeout(() => {
+            el.textContent = translations[lang][key];
+            el.classList.remove("text-fade-out");
+            el.classList.add("text-fade-in");
+        }, 200);
+
+        setTimeout(() => {
+            el.classList.remove("text-fade-in");
+        }, 500);
+    });
+}
+
+switcher.addEventListener("change", () => {
+    updateLanguage(switcher.value);
+});
+
+/* Default language */
+updateLanguage("en");
+
+
+/* ================= BACKGROUND SKILLS ANIMATION ================= */
+
+const skills = [
+    "Cloud Infrastructure",
+    "AWS",
+    "GCP",
+    "IT Operations",
+    "Procurement",
+    "Vendor Management",
+    "Cost Optimization",
+    "Data Center",
+    "Networking",
+    "Firewalls",
+    "Automation",
+    "IT Governance",
+    "Security",
+    "SLA Management"
+];
+
+const skillsContainer = document.querySelector(".skills-bg");
+if (skillsContainer) {
+
+    function createSkill() {
+        const skill = document.createElement("span");
+        skill.className = "skill-float";
+        skill.innerText = skills[Math.floor(Math.random() * skills.length)];
+
+        skill.style.left = Math.random() * 100 + "%";
+        skill.style.fontSize = Math.random() * 6 + 12 + "px";
+        skill.style.animationDuration = Math.random() * 20 + 30 + "s";
+
+        skillsContainer.appendChild(skill);
+
+        setTimeout(() => skill.remove(), 60000);
+    }
+
+    setInterval(createSkill, 1800);
+}
+
