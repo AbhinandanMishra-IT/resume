@@ -1,418 +1,74 @@
-// ================= TRANSLATIONS DATA =================
-const translations = {
-    en: {
-        tagline: "Driving Innovation Through Technology",
-        designation: "Digital Transformation Leader | IT Strategy & Innovation",
-        summary: "Seasoned technology leader with 10+ years of experience in driving digital transformation, cloud migration, and enterprise solutions. Specialized in AI/ML integration, DevOps excellence, and strategic IT leadership.",
-        btn_work: "View My Work",
-        btn_skills: "See Expertise",
-        btn_download: "Download Resume",
-        experience: "Years of Experience",
-        profile_text: "Transforming businesses through innovative technology solutions and strategic digital initiatives.",
-        // Navigation
-        nav_about: "About",
-        nav_experience: "Experience",
-        nav_skills: "Expertise",
-        nav_contact: "Contact"
-    },
-    hi: {
-        tagline: "प्रौद्योगिकी के माध्यम से नवाचार को आगे बढ़ाना",
-        designation: "डिजिटल परिवर्तन नेता | आईटी रणनीति और नवाचार",
-        summary: "डिजिटल परिवर्तन, क्लाउड माइग्रेशन और एंटरप्राइज़ समाधानों में 10+ वर्षों के अनुभव के साथ अनुभवी प्रौद्योगिकी नेता। AI/ML एकीकरण, DevOps उत्कृष्टता और रणनीतिक IT नेतृत्व में विशेषज्ञ।",
-        btn_work: "मेरा काम देखें",
-        btn_skills: "विशेषज्ञता देखें",
-        btn_download: "रिज्यूमे डाउनलोड करें",
-        experience: "वर्षों का अनुभव",
-        profile_text: "नवीन प्रौद्योगिकी समाधानों और रणनीतिक डिजिटल पहलों के माध्यम से व्यवसायों को बदलना।",
-        nav_about: "परिचय",
-        nav_experience: "अनुभव",
-        nav_skills: "विशेषज्ञता",
-        nav_contact: "संपर्क"
-    },
-    mr: {
-        tagline: "तंत्रज्ञानाद्वारे नवोन्मेष प्रेरित करणे",
-        designation: "डिजिटल परिवर्तन नेता | आयटी धोरण आणि नवकल्पना",
-        summary: "डिजिटल परिवर्तन, क्लाउड स्थलांतर आणि एंटरप्राइझ सोल्यूशन्समध्ये 10+ वर्षांचा अनुभव असलेले अनुभवी तंत्रज्ञान नेते। AI/ML एकत्रीकरण, DevOps उत्कृष्टता आणि धोरणात्मक IT नेतृत्वात तज्ञ।",
-        btn_work: "माझे काम पहा",
-        btn_skills: "तज्ञता पहा",
-        btn_download: "रेझ्युमे डाउनलोड करा",
-        experience: "वर्षांचा अनुभव",
-        profile_text: "नाविन्यपूर्ण तंत्रज्ञान उपाय आणि धोरणात्मक डिजिटल उपक्रमांद्वारे व्यवसाय बदलत आहे।",
-        nav_about: "माहिती",
-        nav_experience: "अनुभव",
-        nav_skills: "तज्ञता",
-        nav_contact: "संपर्क"
-    },
-    te: {
-        tagline: "సాంకేతికత ద్వారా ఆవిష్కరణను ముందుకు తీసుకెళ్లడం",
-        designation: "డిజిటల్ ట్రాన్స్‌ఫర్మేషన్ లీడర్ | IT వ్యూహం & ఆవిష్కరణ",
-        summary: "డిజిటల్ పరివర్తన, క్లౌడ్ మైగ్రేషన్ మరియు ఎంటర్‌ప్రైజ్ సొల్యూషన్స్‌లో 10+ సంవత్సరాల అనుభవంతో అనుభవజ్ఞుడైన టెక్నాలజీ లీడర్. AI/ML ఇంటిగ్రేషన్, DevOps ఎక్సలెన్స్ మరియు వ్యూహాత్మక IT నాయకత్వంలో ప్రత్యేకత.",
-        btn_work: "నా పనిని చూడండి",
-        btn_skills: "నైపుణ్యం చూడండి",
-        btn_download: "రెజ్యూమ్ డౌన్‌లోడ్ చేయండి",
-        experience: "సంవత్సరాల అనుభవం",
-        profile_text: "వినూత్న సాంకేతిక పరిష్కారాలు మరియు వ్యూహాత్మక డిజిటల్ కార్యక్రమాల ద్వారా వ్యాపారాలను మార్చడం.",
-        nav_about: "గురించి",
-        nav_experience: "అనుభవం",
-        nav_skills: "నైపుణ్యం",
-        nav_contact: "సంప్రదించండి"
-    },
-    pa: {
-        tagline: "ਤਕਨਾਲੋਜੀ ਰਾਹੀਂ ਨਵੀਨਤਾ ਨੂੰ ਅੱਗੇ ਵਧਾਉਣਾ",
-        designation: "ਡਿਜੀਟਲ ਪਰਿਵਰਤਨ ਲੀਡਰ | IT ਰਣਨੀਤੀ ਅਤੇ ਨਵੀਨਤਾ",
-        summary: "ਡਿਜੀਟਲ ਪਰਿਵਰਤਨ, ਕਲਾਉਡ ਮਾਈਗ੍ਰੇਸ਼ਨ ਅਤੇ ਐਂਟਰਪ੍ਰਾਈਜ਼ ਹੱਲਾਂ ਵਿੱਚ 10+ ਸਾਲਾਂ ਦੇ ਤਜਰਬੇ ਵਾਲੇ ਤਜਰਬੇਕਾਰ ਤਕਨਾਲੋਜੀ ਲੀਡਰ। AI/ML ਏਕੀਕਰਨ, DevOps ਉੱਤਮਤਾ ਅਤੇ ਰਣਨੀਤਕ IT ਲੀਡਰਸ਼ਿਪ ਵਿੱਚ ਮਾਹਰ।",
-        btn_work: "ਮੇਰਾ ਕੰਮ ਦੇਖੋ",
-        btn_skills: "ਮੁਹਾਰਤ ਦੇਖੋ",
-        btn_download: "ਰੈਜ਼ਿਊਮੇ ਡਾਊਨਲੋਡ ਕਰੋ",
-        experience: "ਸਾਲਾਂ ਦਾ ਤਜਰਬਾ",
-        profile_text: "ਨਵੀਨਤਾਕਾਰੀ ਤਕਨਾਲੋਜੀ ਹੱਲਾਂ ਅਤੇ ਰਣਨੀਤਕ ਡਿਜੀਟਲ ਪਹਿਲਕਦਮੀਆਂ ਰਾਹੀਂ ਕਾਰੋਬਾਰਾਂ ਨੂੰ ਬਦਲਣਾ।",
-        nav_about: "ਬਾਰੇ",
-        nav_experience: "ਤਜਰਬਾ",
-        nav_skills: "ਮੁਹਾਰਤ",
-        nav_contact: "ਸੰਪਰਕ"
-    },
-    gu: {
-        tagline: "ટેકનોલોજી દ્વારા નવીનતા આગળ વધારવી",
-        designation: "ડિજિટલ ટ્રાન્સફોર્મેશન લીડર | IT વ્યૂહરચના અને નવીનતા",
-        summary: "ડિજિટલ પરિવર્તન, ક્લાઉડ માઇગ્રેશન અને એન્ટરપ્રાઇઝ સોલ્યુશન્સમાં 10+ વર્ષના અનુભવ સાથે અનુભવી ટેકનોલોજી લીડર. AI/ML એકીકરણ, DevOps શ્રેષ્ઠતા અને વ્યૂહાત્મક IT નેતૃત્વમાં નિષ્ણાત.",
-        btn_work: "મારું કાર્ય જુઓ",
-        btn_skills: "નિપુણતા જુઓ",
-        btn_download: "રેઝ્યુમે ડાઉનલોડ કરો",
-        experience: "વર્ષોનો અનુભવ",
-        profile_text: "નવીન ટેકનોલોજી સોલ્યુશન્સ અને વ્યૂહાત્મક ડિજિટલ પહેલ દ્વારા વ્યવસાયોને પરિવર્તિત કરવા.",
-        nav_about: "વિશે",
-        nav_experience: "અનુભવ",
-        nav_skills: "નિપુણતા",
-        nav_contact: "સંપર્ક"
-    }
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abhinandan Mishra | Digital Transformation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-// ================= SKILLS FOR BACKGROUND ANIMATION =================
-const skillsList = [
-    'Cloud Architecture', 'Azure', 'AWS', 'DevOps', 'CI/CD',
-    'AI/ML', 'Digital Transformation', 'Agile', 'Kubernetes',
-    'Docker', 'Python', 'Leadership', 'Innovation', 'Strategy',
-    'Microservices', 'API Design', 'Security', 'Automation',
-    'Data Analytics', 'Project Management', 'Scrum', 'Team Building'
-];
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-// ================= STATE MANAGEMENT =================
-let currentLanguage = 'en';
+<body>
 
-// ================= INITIALIZATION =================
-document.addEventListener('DOMContentLoaded', () => {
-    initLanguageSwitcher();
-    initStickyNavbar();
-    initSmoothScroll();
-    initSkillsAnimation();
-    initStarsAnimation();
-    initProfileCardAnimation();
-    initScrollAnimations();
-    
-    // Set initial language
-    updateLanguage('en');
-});
+<!-- BACKGROUND -->
+<div class="stars"></div>
 
-// ================= LANGUAGE SWITCHER =================
-function initLanguageSwitcher() {
-    const languageSwitcher = document.getElementById('languageSwitcher');
-    
-    if (languageSwitcher) {
-        languageSwitcher.addEventListener('change', (e) => {
-            updateLanguage(e.target.value);
-        });
-    }
-}
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">AM · Digital Transformation</div>
 
-function updateLanguage(lang) {
-    currentLanguage = lang;
-    const translation = translations[lang];
-    
-    // Update all elements with data-key attribute
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translation[key]) {
-            if (element.tagName === 'A' || element.tagName === 'BUTTON') {
-                element.textContent = translation[key];
-            } else {
-                element.textContent = translation[key];
-            }
-        }
-    });
-    
-    // Update navigation links
-    const navLinks = document.querySelectorAll('.nav-links a');
-    if (navLinks.length >= 4) {
-        navLinks[0].textContent = translation.nav_about || 'About';
-        navLinks[1].textContent = translation.nav_experience || 'Experience';
-        navLinks[2].textContent = translation.nav_skills || 'Expertise';
-        navLinks[3].textContent = translation.nav_contact || 'Contact';
-    }
-}
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Expertise</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
-// ================= STICKY NAVBAR =================
-function initStickyNavbar() {
-    const navbar = document.querySelector('.navbar');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-            
-            // Hide navbar on scroll down, show on scroll up
-            if (currentScroll > lastScroll && currentScroll > 500) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-        } else {
-            navbar.classList.remove('scrolled');
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-}
+    <select id="languageSwitcher" class="lang-switcher">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+    </select>
+</nav>
 
-// ================= SMOOTH SCROLL =================
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            
-            // Don't prevent default for just "#"
-            if (href === '#' || href === '#downloadPDF') {
-                return;
-            }
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            
-            if (target) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
+<!-- HERO -->
+<section class="hero">
 
-// ================= SKILLS BACKGROUND ANIMATION =================
-function initSkillsAnimation() {
-    const skillsBg = document.querySelector('.skills-bg');
-    
-    if (!skillsBg) return;
-    
-    // Create floating skill badges
-    for (let i = 0; i < 15; i++) {
-        const skill = document.createElement('div');
-        skill.className = 'skill-badge';
-        skill.textContent = skillsList[Math.floor(Math.random() * skillsList.length)];
-        
-        // Random positioning
-        skill.style.left = Math.random() * 100 + '%';
-        skill.style.top = Math.random() * 100 + '%';
-        skill.style.animationDelay = Math.random() * 5 + 's';
-        skill.style.animationDuration = (15 + Math.random() * 10) + 's';
-        
-        skillsBg.appendChild(skill);
-    }
-}
+    <!-- floating skills -->
+    <div class="skills-bg"></div>
 
-// ================= STARS ANIMATION =================
-function initStarsAnimation() {
-    const starsContainer = document.querySelector('.stars');
-    
-    if (!starsContainer) return;
-    
-    // Create stars
-    for (let i = 0; i < 100; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.animationDelay = Math.random() * 3 + 's';
-        star.style.animationDuration = (2 + Math.random() * 3) + 's';
-        
-        starsContainer.appendChild(star);
-    }
-}
+    <div class="hero-left">
+        <p class="tagline" data-key="tagline"></p>
+        <h1>Abhinandan Mishra</h1>
+        <h3 data-key="designation"></h3>
+        <p class="summary" data-key="summary"></p>
 
-// ================= PROFILE CARD ANIMATION =================
-function initProfileCardAnimation() {
-    const profileCard = document.querySelector('.profile-card');
-    
-    if (!profileCard) return;
-    
-    // Animate experience bar on load
-    setTimeout(() => {
-        const fill = document.querySelector('.experience-bar .fill');
-        if (fill) {
-            fill.style.width = '100%';
-        }
-    }, 500);
-    
-    // 3D tilt effect on mouse move
-    profileCard.addEventListener('mousemove', (e) => {
-        const rect = profileCard.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        profileCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-    
-    profileCard.addEventListener('mouseleave', () => {
-        profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
-}
+        <div class="buttons">
+            <a href="#experience" class="btn primary" data-key="btn_work"></a>
+            <a href="#skills" class="btn secondary" data-key="btn_skills"></a>
+            <a href="resume.pdf" class="btn outline" data-key="btn_download"></a>
+        </div>
+    </div>
 
-// ================= SCROLL ANIMATIONS =================
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all sections and cards
-    document.querySelectorAll('section, .card, .skill-card, .timeline-item').forEach(el => {
-        observer.observe(el);
-    });
-}
+    <div class="hero-right">
+        <div class="profile-card">
+            <img src="profile.jpg" alt="Profile">
 
-// ================= TYPING EFFECT FOR TAGLINE =================
-function initTypingEffect() {
-    const tagline = document.querySelector('.tagline');
-    if (!tagline) return;
-    
-    const text = tagline.textContent;
-    tagline.textContent = '';
-    let i = 0;
-    
-    function type() {
-        if (i < text.length) {
-            tagline.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, 50);
-        }
-    }
-    
-    setTimeout(type, 500);
-}
+            <div class="experience-bar">
+                <span data-key="experience"></span>
+                <div class="bar">
+                    <div class="fill"></div>
+                </div>
+                <p>10+</p>
+            </div>
 
-// ================= PDF DOWNLOAD HANDLER =================
-document.addEventListener('DOMContentLoaded', () => {
-    const downloadBtn = document.getElementById('downloadPDF');
-    
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', (e) => {
-            // If resume.pdf doesn't exist, you can show a message
-            // or generate it dynamically
-            console.log('Downloading resume...');
-        });
-    }
-});
+            <p class="profile-text" data-key="profile_text"></p>
+        </div>
+    </div>
 
-// ================= UTILITY FUNCTIONS =================
+</section>
 
-// Debounce function for performance
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Throttle function for scroll events
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// ================= PERFORMANCE OPTIMIZATIONS =================
-
-// Optimize scroll event listeners
-const optimizedScroll = throttle(() => {
-    // Your scroll logic here
-}, 100);
-
-window.addEventListener('scroll', optimizedScroll);
-
-// ================= ADDITIONAL INTERACTIVITY =================
-
-// Button hover effects
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px)';
-    });
-    
-    btn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// Add ripple effect to buttons
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        this.appendChild(ripple);
-        
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-});
-
-// ================= CONSOLE EASTER EGG =================
-console.log('%c🚀 Built by Abhinandan Mishra', 'color: #4CAF50; font-size: 20px; font-weight: bold;');
-console.log('%cInterested in collaboration? Let\'s connect!', 'color: #2196F3; font-size: 14px;');
-
-// ================= EXPORT FOR MODULE SYSTEMS (if needed) =================
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        translations,
-        updateLanguage,
-        initLanguageSwitcher
-    };
-}
+<!-- JS (VERY IMPORTANT: at bottom) -->
+<script src="script.js"></script>
+</body>
+</html>
