@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Abhinandan Mishra | Digital Transformation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar"> <select id="languageSwitcher" class="lang-switcher">
-    <option value="en">English</option>
-    <option value="hi">हिंदी</option>
-    <option value="mr">मराठी</option>
-    <option value="te">తెలుగు</option>
-    <option value="pa">ਪੰਜਾਬੀ</option>
-    <option value="gu">ગુજરાતી</option>
-</select>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+
     <div class="logo">AM · Digital Transformation</div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Expertise</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- LANGUAGE SWITCHER -->
+        <select id="languageSwitcher" class="lang-switcher" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="mr">मराठी</option>
+            <option value="te">తెలుగు</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="gu">ગુજરાતી</option>
+        </select>
+    </div>
+
 </nav>
 
-<!-- HERO SECTION -->
-<section class="hero"> 
+<!-- ================= HERO SECTION ================= -->
+<section class="hero">
+
     <!-- BACKGROUND SKILLS ANIMATION -->
-<div class="skills-bg"></div>
+    <div class="skills-bg"></div>
+
+    <!-- LEFT CONTENT -->
     <div class="hero-left">
 
         <!-- TAGLINE -->
         <p class="tagline" data-key="tagline"></p>
 
-        <!-- NAME (no translation) -->
+        <!-- NAME -->
         <h1>Abhinandan Mishra</h1>
 
         <!-- DESIGNATION -->
@@ -43,32 +56,38 @@
         <!-- SUMMARY -->
         <p class="summary" data-key="summary"></p>
 
-        <!-- BUTTONS -->
+        <!-- CTA BUTTONS -->
         <div class="buttons">
             <a href="#experience" class="btn primary" data-key="btn_work"></a>
             <a href="#skills" class="btn secondary" data-key="btn_skills"></a>
             <a href="resume.pdf" class="btn outline" data-key="btn_download"></a>
         </div>
-        
+
     </div>
 
+    <!-- RIGHT CARD -->
     <div class="hero-right">
         <div class="profile-card">
-            <img src="profile.jpg" alt="Profile Photo">
 
-           <div class="experience-bar">
-    <span data-key="experience"></span>
-    <div class="bar">
-        <div class="fill"></div>
-    </div>
-    <p>10+</p>
-</div>
+            <img src="profile.jpg" alt="Abhinandan Mishra Profile Photo">
 
-<p class="profile-text" data-key="profile_text"></p>
+            <div class="experience-bar">
+                <span data-key="experience"></span>
+                <div class="bar">
+                    <div class="fill"></div>
+                </div>
+                <p>10+</p>
+            </div>
+
+            <p class="profile-text" data-key="profile_text"></p>
+
         </div>
     </div>
+
 </section>
 
+<!-- ================= SCRIPTS ================= -->
 <script src="script.js"></script>
+
 </body>
 </html>
